@@ -1,5 +1,3 @@
-from lettuce import *
-
 import unittest
 from bank import Bank
 from account import Account
@@ -31,5 +29,5 @@ class TestBank(unittest.TestCase):
         account_1 = Account(001, 50)
 
         bank.add_account(account_1)
-        self.assertEqual(bank.get_account_balance(002), 20)
+        self.assertRaises(KeyError, bank.get_account_balance, 002)
 
