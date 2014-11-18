@@ -1,3 +1,6 @@
+from withdraw_amount_exceed_balance import WithdrawAmountExceedBalanceError
+
+
 class Bank(object):
     def __init__(self):
         self.accounts = {}
@@ -13,6 +16,9 @@ class Bank(object):
 
     def withdraw_balance(self, account_no, amount):
         balance = self.accounts[account_no]
-        balance -= amount
 
-        self.accounts[account_no] = balance
+        if balance >= amount:
+            balance -= amount
+            self.accounts[account_no] = balance
+        else:
+            raise WithdrawAmountExceedBalanceError
