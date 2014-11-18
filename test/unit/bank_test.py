@@ -1,7 +1,8 @@
 import unittest
 from bank import Bank
 from account import Account
-from withdraw_amount_exceed_balance import WithdrawAmountExceedBalanceError
+from withdraw_amount_exceed_balance \
+    import WithdrawAmountExceedBalanceError, WithdrawAmountNegativeError
 
 
 class TestBank(unittest.TestCase):
@@ -47,4 +48,14 @@ class TestBank(unittest.TestCase):
 
         bank.add_account(account_1)
 
-        self.assertRaises(WithdrawAmountExceedBalanceError, bank.withdraw_balance, "001", 100)
+        self.assertRaises(WithdrawAmountExceedBalanceError,
+            bank.withdraw_balance, "001", 100)
+
+    def test_account_withdraw_negative_amount(self):
+        bank = Bank()
+        account_1 = Account("001", 50)
+
+        bank.add_account(account_1)
+
+        self.assertRaises(WithdrawAmountNegativeError,
+            bank.withdraw_balance, "001", -1)
