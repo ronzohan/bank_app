@@ -6,8 +6,7 @@ class Bank(object):
         self.accounts[account.account_number] = account.balance
 
     def get_account_balance(self, account_no):
-        if self.accounts[account_no]:
-            balance = self.accounts[account_no]
-        else:
+        try:
+            return self.accounts[account_no]
+        except:
             raise KeyError
-        return balance
