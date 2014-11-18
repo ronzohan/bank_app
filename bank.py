@@ -11,8 +11,8 @@ class Bank(object):
         except:
             raise KeyError
 
-    def withdraw_balance(self, account_no, value):
+    def withdraw_balance(self, account_no, amount):
         balance = self.accounts[account_no]
-        balance -= value
+        balance -= amount
 
         self.accounts[account_no] = balance
