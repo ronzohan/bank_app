@@ -8,3 +8,5 @@ class TestAccount(unittest.TestCase):
         self.assertEqual(account.account_number, 001)
         self.assertEqual(account.balance, 50)
 
+    def test_accout_balance_is_string(self):
+        self.assertRaises(TypeError, Account, "001", "50")
