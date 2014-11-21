@@ -10,13 +10,14 @@ class Bank(object):
         self.accounts[account.account_number] = account.balance
 
     def get_account_balance(self, account_no):
-        try:
-            return self.accounts[account_no]
-        except:
-            raise KeyError
+        balance = self.accounts.get(account_no)
+        if balance is None:
+            return 'No account associated with that account'
+        else:
+            return balance
 
     def withdraw_balance(self, account_no, amount):
-        balance = self.accounts[account_no]
+        balance = self.accounts.get(account_no)
 
         if amount < 0:
             raise WithdrawAmountNegativeError
