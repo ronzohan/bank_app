@@ -28,10 +28,7 @@ class TestBank(unittest.TestCase):
 
     def test_account_number_exists(self):
         bank = Bank()
-        account_1 = Account("001", 50)
-
-        bank.add_account(account_1)
-        self.assertRaises(KeyError, bank.get_account_balance, "002")
+        self.assertEqual(bank.get_account_balance("002"), 'No account associated with that account')
 
     def test_account_withdraw_balance(self):
         bank = Bank()
@@ -49,7 +46,7 @@ class TestBank(unittest.TestCase):
         bank.add_account(account_1)
 
         self.assertRaises(WithdrawAmountExceedBalanceError,
-            bank.withdraw_balance, "001", 100)
+                          bank.withdraw_balance, "001", 100)
 
     def test_account_withdraw_negative_amount(self):
         bank = Bank()
@@ -57,5 +54,5 @@ class TestBank(unittest.TestCase):
 
         bank.add_account(account_1)
 
-        self.assertRaises(WithdrawAmountNegativeError,
-            bank.withdraw_balance, "001", -1)
+        self.assertRaises(WithdrawAmountNegativeError, bank.withdraw_balance,
+                          "001", -1)
