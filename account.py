@@ -5,5 +5,9 @@ class Account(object):
         if type(balance) == int:
             self.balance = balance
         else:
-            raise TypeError("Balance is of {}, must be int".format(
-                type(balance)))
+            try:
+                self.balance = int(balance)
+            except:
+                raise TypeError("Balance is of {}, must be int".format(
+                        type(balance)))
+
