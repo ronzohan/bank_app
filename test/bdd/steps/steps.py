@@ -30,3 +30,10 @@ def i_enter_the_account_number_group1(step, account_number):
 @step(u'Then I see a balance of "([^"]*)"')
 def then_i_see_a_balance_of_group1(step, expected_balance):
     assert_in("Balance: {}".format(expected_balance), world.form_response.text)
+
+
+@step(u'Given I create the following account:')
+def given_i_create_the_following_account(step):
+    for row in step.hashes:
+        a = Account(row['account_number'], row['balance'])
+        BANK.add_account(a)
