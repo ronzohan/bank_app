@@ -1,7 +1,7 @@
 import unittest
-from bank import Bank
-from account import Account
-from withdraw_amount_exceed_balance \
+from bankapp.bank import Bank
+from bankapp.account import Account
+from bankapp.withdraw_amount_exceed_balance \
     import WithdrawAmountExceedBalanceError, WithdrawAmountNegativeError
 
 

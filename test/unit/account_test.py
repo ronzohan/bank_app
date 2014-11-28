@@ -1,5 +1,5 @@
 import unittest
-from account import Account
+from bankapp.account import Account
 
 
 class TestAccount(unittest.TestCase):
@@ -9,4 +9,5 @@ class TestAccount(unittest.TestCase):
         self.assertEqual(account.balance, 50)
 
     def test_accout_balance_is_string(self):
-        self.assertRaises(TypeError, Account, "001", "50")
+        acc = Account("001", "50")
+        self.assertEqual(acc.balance, acc.balance)
