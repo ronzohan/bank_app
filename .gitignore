@@ -2,3 +2,6 @@
 *.project
 *.pydevproject
 *.coverage
+log.html
+output.xml
+report.html
