@@ -1,4 +1,10 @@
+"""
+Model for Account object
+"""
 class Account(object):
+    """
+    Account object used by the Bank
+    """
     def __init__(self, account_number, balance):
         self.account_number = account_number
 
@@ -9,5 +15,5 @@ class Account(object):
                 self.balance = int(balance)
             except:
                 raise TypeError("Balance is of {}, must be int".format(
-                        type(balance)))
+                    type(balance)))
 
