@@ -19,6 +19,6 @@ def hello_world():
     return render_template('index.html', balance=balance)
 
 if __name__ == '__main__':
-    ACCOUNT = Account('1111', 50)
-    BANK.add_account(ACCOUNT)
+    account = Account('1111', 50) #pylint: disable=C0103
+    BANK.add_account(account)
     APP.run(debug=True)
