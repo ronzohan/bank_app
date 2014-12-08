@@ -11,3 +11,6 @@ class TestAccount(unittest.TestCase):
     def test_accout_balance_is_string(self):
         acc = Account("001", "50")
         self.assertEqual(acc.balance, acc.balance)
+        
+    def test_accout_balance_is_invalid_number(self):
+        self.assertRaises(TypeError, Account, "001", "abc")
