@@ -1,0 +1,11 @@
+[MASTER]
+# List of plugins (as comma separated values of python modules names) to load,
+# usually to register additional checkers.
+
+[REPORTS]
+reports=no
+msg-template="{msg_id}({symbol}) - {obj} Line #{line}: {msg}"
+
+[MESSAGES CONTROL]
+# Use this to remove uninteresting (or currently less important) warnings.
+disable=C0304

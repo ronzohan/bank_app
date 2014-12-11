@@ -1,5 +1,9 @@
 *.pyc
 *.project
 *.pydevproject
+*.coverage
+log.html
+output.xml
+report.html
 *.py~
 *.png
