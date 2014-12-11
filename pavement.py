@@ -1,11 +1,6 @@
-from paver.tasks import task, BuildFailure
-from paver.easy import sh, needs
+from paver.tasks import task, BuildFailure, needs
+from paver.easy import sh
 
-
-@needs('unit_tests', 'lettuce_tests', 'run_pylint')
-@task
-def default():
-    pass
 
 @task
 def unit_tests():
@@ -20,7 +15,12 @@ def lettuce_tests():
 @task
 def run_pylint():
     try:
-        sh('pylint --msg-template="{path}:{line}:[{msg_id}({symbol}), {obj}] {msg}" bankapp/ > pylint.txt')
+        sh('pylint --msg-template="{path}:{line}: [{msg_id}({symbol}), {obj}] {msg}" bank/ > pylint.txt')
     except BuildFailure:
         pass
 
+
+@needs('unit_tests', 'lettuce_tests', 'run_pylint')
+@task
+def default():
+    pass
