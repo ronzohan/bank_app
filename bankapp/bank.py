@@ -27,7 +27,7 @@ class Bank(object):
         if balance is None:
             return 'No account associated with that account'
         else:
-            return balancesadasd
+            return balance
 
     def withdraw_balance(self, account_no, amount):
         """
