@@ -9,6 +9,7 @@ from bankapp.account import Account
 APP = Flask(__name__)
 BANK = Bank()
 
+
 @APP.route('/')
 def hello_world():
     """
@@ -19,6 +20,6 @@ def hello_world():
     return render_template('index.html', balance=balance)
 
 if __name__ == '__main__':
-    account = Account('1111', 50)
-    BANK.add_account(account)
+    ACCOUNT = Account('1111', 50)
+    BANK.add_account(ACCOUNT)
     APP.run(debug=True)
